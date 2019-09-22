@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3f5d66f9-addb-4a6d-beb4-d6aeb1d9a46d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AbstractFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Builder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -51,8 +49,17 @@
       <option name="presentableId" value="Default" />
       <updated>1569055039267</updated>
       <workItem from="1569055040860" duration="2955000" />
-      <workItem from="1569058549630" duration="4772000" />
+      <workItem from="1569058549630" duration="9023000" />
+      <workItem from="1569155845607" duration="5558000" />
     </task>
+    <task id="LOCAL-00001" summary="AbstractFactory">
+      <created>1569063481755</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1569063481755</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -63,10 +70,16 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="AbstractFactory" />
+    <option name="LAST_COMMIT_MESSAGE" value="AbstractFactory" />
   </component>
 </project>
