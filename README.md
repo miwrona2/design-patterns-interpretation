@@ -7,7 +7,7 @@
 |Builder          |[php](php/Builder.php)        |js / ts |
 |Factory Method   |php                           |js / ts |
 |Builder          |php                           |js / ts |
-|Prototype        |php                           |js / ts |
+|Prototype        |[php](php/Prototype.php)      |[js](js/Prototype.js) / ts |
 |Singleton        |php                           |js / ts |
 
 #### Structural
