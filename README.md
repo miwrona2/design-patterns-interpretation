@@ -6,14 +6,13 @@
 |Abstract Factory |[php](php/AbstractFactory.php)|js / ts |
 |Builder          |[php](php/Builder.php)        |js / ts |
 |Factory Method   |php                           |js / ts |
-|Builder          |php                           |js / ts |
 |Prototype        |[php](php/Prototype.php)      |[js](js/Prototype.js) / ts |
 |Singleton        |php                           |js / ts |
 
 #### Structural
 |   |       |     |
 |---|:-----:| ---:|
-Adapter |php |js / ts 
+Adapter |[php](php/Adapter.php) |js / ts 
 Bridge |php |js / ts 
 Composite |php |js / ts 
 Decorator |php |js / ts 
