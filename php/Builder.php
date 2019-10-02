@@ -1,9 +1,12 @@
 <?php
 
-interface Builder {
+namespace DesignPatterns\Creational\Builder;
+
+interface Builder
+{
 
     public function createBuilding();
-    
+
     public function buildFoundations();
 
     public function constructWalls();
@@ -13,7 +16,8 @@ interface Builder {
     public function getBuilding();
 }
 
-class DetachedHouseBuilder implements Builder {
+class DetachedHouseBuilder implements Builder
+{
 
     /** @var DetachedHouse */
     private $detachedHouse;
@@ -52,12 +56,14 @@ class DetachedHouseBuilder implements Builder {
     }
 }
 
-class BlockOfFlatsBuilder implements Builder {
+class BlockOfFlatsBuilder implements Builder
+{
 
     /** @var BlockOfFlats */
     private $blockOfFlats;
 
-    public function createBuilding() {
+    public function createBuilding()
+    {
         $this->blockOfFlats = new BlockOfFlats();
     }
 
@@ -91,7 +97,8 @@ class BlockOfFlatsBuilder implements Builder {
     }
 }
 
-abstract class Building {
+abstract class Building
+{
 
     private $buildingParts = [];
 
@@ -101,9 +108,22 @@ abstract class Building {
     }
 }
 
-class DetachedHouse extends Building {}
-class BlockOfFlats extends Building {}
+class DetachedHouse extends Building
+{
+}
 
-class Walls {}
-class WallFooting {}
-class RoofSlope {}
+class BlockOfFlats extends Building
+{
+}
+
+class Walls
+{
+}
+
+class WallFooting
+{
+}
+
+class RoofSlope
+{
+}

@@ -1,13 +1,10 @@
 <?php
 
+namespace DesignPatterns\Creational\FactoryMethod;
+
 interface ChocolateFactory
 {
     public function makeChocolate();
-}
-
-interface Chocolate
-{
-    public function getType();
 }
 
 class DarkChocolateFactory implements ChocolateFactory
@@ -18,16 +15,43 @@ class DarkChocolateFactory implements ChocolateFactory
     }
 }
 
+class MilkChocolateFactory implements ChocolateFactory
+{
+    public function makeChocolate()
+    {
+        return new MilkChocolate();
+    }
+}
+
+interface Chocolate
+{
+    public function getType();
+}
+
 class DarkChocolate implements Chocolate
 {
     public function getType()
     {
-        return 'Dark chocolate';
+        return 'dark chocolate';
+    }
+
+}
+
+class MilkChocolate implements Chocolate
+{
+    public function getType()
+    {
+        return 'milk chocolate';
     }
 }
 
 // usage
-$factory = new DarkChocolateFactory();
-$chocolate = $factory->makeChocolate();
-print $chocolate->getType();
-// displays 'Dark chocolate'
+$milkChocolateFactory = new MilkChocolateFactory();
+$mikChocolate = $milkChocolateFactory->makeChocolate();
+print $mikChocolate->getType() . PHP_EOL;
+// displays 'milk chocolate'
+
+$darkChocolateFactory = new DarkChocolateFactory();
+$darkChocolate = $darkChocolateFactory->makeChocolate();
+print $darkChocolate->getType();
+// displays 'dark chocolate'

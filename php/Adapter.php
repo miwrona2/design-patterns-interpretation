@@ -1,5 +1,7 @@
 <?php
 
+namespace DesignPatterns\Structural\Adapter;
+
 interface Vehicle
 {
     public function getTotalWeight(): int;
@@ -53,7 +55,7 @@ class HeavyDutyTruck implements Truck
     }
 }
 
-class HDTToCarAdapter implements Vehicle
+class HDTtoVehicleAdapter implements Vehicle
 {
 
     private $hdt;
@@ -90,7 +92,7 @@ class JohnDoesVehicles
     }
 }
 
-// John Doe wants to check if his garages floor is strong enough to hold all his vehicles
+// John Doe wants to check if his garage's floor is strong enough to hold all his vehicles
 $johnDoesVehicles = new JohnDoesVehicles();
 $fordMondeo = new Car();
 $fordMondeo->setWeight(1200);
@@ -99,7 +101,7 @@ $johnDoesVehicles->addVehicle($fordMondeo);
 $scania = new HeavyDutyTruck();
 $scania->setTruckWeight(4000);
 $scania->setTrailerWeight(10000);
-$johnDoesVehicles->addVehicle(new HDTToCarAdapter($scania));
+$johnDoesVehicles->addVehicle(new HDTtoVehicleAdapter($scania));
 
 print_r($johnDoesVehicles->sumWeightOfAllVehicles());
 // displays 15200

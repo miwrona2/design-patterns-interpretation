@@ -1,10 +1,14 @@
 <?php
 
-interface Vehicle {
+namespace DesignPatterns\Creational\AbstractFactory;
+
+interface Vehicle
+{
     public function getTotalWeight();
 }
 
-class Car implements Vehicle {
+class Car implements Vehicle
+{
 
     private $weight;
 
@@ -19,7 +23,8 @@ class Car implements Vehicle {
     }
 }
 
-class Truck implements Vehicle {
+class Truck implements Vehicle
+{
     private $weight;
     private $trailerWeight;
 
@@ -40,7 +45,8 @@ class Truck implements Vehicle {
     }
 }
 
-class CarFactory {
+class CarFactory
+{
 
     const TRAIL_WEIGHT = 20000;
 
@@ -55,15 +61,15 @@ class CarFactory {
     }
 }
 
-class Usage {
-    public function createVehicles()
-    {
-        $factory = new CarFactory();
+//usage
+$factory = new CarFactory();
 
-        $car = $factory->createCar(1500);
-        $carWeight = $car->getTotalWeight();
+$car = $factory->createCar(1500);
+$carWeight = $car->getTotalWeight();
+print $carWeight . PHP_EOL;
+// displays 1500 kg
 
-        $truck = $factory->createTruck(5000);
-        $truckWeight = $truck->getTotalWeight();
-    }
-}
+$truck = $factory->createTruck(5000);
+$truckWeight = $truck->getTotalWeight();
+print $truckWeight;
+// displays 25000 kg

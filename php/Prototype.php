@@ -1,6 +1,9 @@
 <?php
 
-abstract class VehiclePrototype {
+namespace DesignPatterns\Creational\Prototype;
+
+abstract class VehiclePrototype
+{
     /**
      * @var string
      */
@@ -28,7 +31,8 @@ abstract class VehiclePrototype {
 
 }
 
-class Truck extends VehiclePrototype {
+class Truck extends VehiclePrototype
+{
 
     protected $vehicleType = 'Truck';
 
@@ -37,7 +41,8 @@ class Truck extends VehiclePrototype {
     }
 }
 
-class SUV extends VehiclePrototype {
+class SUV extends VehiclePrototype
+{
 
     protected $vehicleType = 'SUV';
 
@@ -47,7 +52,7 @@ class SUV extends VehiclePrototype {
 }
 
 // usage
-$truck  = new Truck();
+$truck = new Truck();
 
 $iveco = clone $truck;
 $iveco->setBrand('Iveco');
