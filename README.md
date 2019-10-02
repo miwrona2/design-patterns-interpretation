@@ -5,7 +5,7 @@
 |-----------------|:----------------------------:| ---:|
 |Abstract Factory |[php](php/AbstractFactory.php)|js / ts |
 |Builder          |[php](php/Builder.php)        |js / ts |
-|Factory Method   |php                           |js / ts |
+|Factory Method   |[php](php/FactoryMethod.php)                      |js / ts |
 |Prototype        |[php](php/Prototype.php)      |[js](js/Prototype.js) / ts |
 |Singleton        |php                           |js / ts |
 
