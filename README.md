@@ -13,7 +13,7 @@
 |   |       |     |
 |---|:-----:| ---:|
 Adapter |[php](php/Adapter.php) |js / ts 
-Bridge |php |js / ts 
+Bridge |[php](php/Bridge.php) |js / ts 
 Composite |php |js / ts 
 Decorator |php |js / ts 
 Facade |php |js / ts 
@@ -29,7 +29,7 @@ Interpreter |php |js / ts
 Iterator |php |js / ts 
 Mediator  |php |js / ts 
 Memento |php |js / ts 
-Observer |php |js / ts 
+Observer |[php](php/Observer.php) |js / ts 
 State  |php |js / ts 
 Strategy  |php |js / ts 
 Template method  |php |js / ts 
