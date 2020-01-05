@@ -78,7 +78,6 @@ class Menu extends Component
      */
     private $title;
 
-    //TODO title to constructor
     public function __construct(string $title)
     {
         $this->children = new \SplObjectStorage;
@@ -102,6 +101,11 @@ class Menu extends Component
         $component->setParent(null);
     }
 
+    public function isRoot(): bool
+    {
+        return !empty($this->getParent());
+    }
+
     public function isComposite(): bool
     {
         return true;
@@ -111,14 +115,21 @@ class Menu extends Component
     public function render(): string
     {
         $title = $this->getTitle();
-        $html = <<<html
+        $html = '';
+        if ($this->isRoot()) {
+            $html = <<<html
 <li><a>$title</a>
 html. PHP_EOL;
+        }
+
         $html .= '<ul>' . PHP_EOL;
         foreach ($this->children as $child) {
             $html .= $child->render();
         }
-        $html .= '</ul>' . "\n" . '</li>' . PHP_EOL;
+        $html .= '</ul>' . PHP_EOL;
+        if ($this->isRoot()) {
+            $html .= '</li>' . PHP_EOL;
+        }
         return $html;
     }
 }
@@ -156,6 +167,15 @@ $woman->add($trousers);
 $woman->add($tops);
 $shop->add($woman);
 
+$home = new MenuItem('Home', '/home');
+$about = new MenuItem('About', '/about');
+$contact = new MenuItem('Contact', '/contact');
+
+$menu = new Menu('');
+$menu->add($home);
+$menu->add($about);
+$menu->add($shop);
+
 print_r(
-    $shop->render()
+    $menu->render()
 );
