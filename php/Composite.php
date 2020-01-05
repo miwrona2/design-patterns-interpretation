@@ -28,7 +28,6 @@ abstract class Component
 
 class MenuItem extends Component
 {
-    //todo title and url to constructor
     /**
      * @var string
      */
@@ -61,8 +60,8 @@ class MenuItem extends Component
         $url = $this->getUrl();
         $title = $this->getTitle();
         return <<<html
-    <li><a href="$url">$title</a></li>
-html. PHP_EOL;
+<li><a href="$url">$title</a></li>
+html;
     }
 }
 
@@ -119,16 +118,16 @@ class Menu extends Component
         if ($this->isRoot()) {
             $html = <<<html
 <li><a>$title</a>
-html. PHP_EOL;
+html;
         }
 
-        $html .= '<ul>' . PHP_EOL;
+        $html .= '<ul>';
         foreach ($this->children as $child) {
             $html .= $child->render();
         }
-        $html .= '</ul>' . PHP_EOL;
+        $html .= '</ul>';
         if ($this->isRoot()) {
-            $html .= '</li>' . PHP_EOL;
+            $html .= '</li>';
         }
         return $html;
     }
