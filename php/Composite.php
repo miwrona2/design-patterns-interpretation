@@ -13,7 +13,7 @@ abstract class Component
         return $this;
     }
 
-    public function getParent(): Component
+    public function getParent(): ?Component
     {
         return $this->parent;
     }
@@ -28,6 +28,7 @@ abstract class Component
 
 class MenuItem extends Component
 {
+    //todo title and url to constructor
     /**
      * @var string
      */
@@ -63,10 +64,8 @@ class MenuItem extends Component
         $url = $this->getUrl();
         $title = $this->getTitle();
         return <<<html
-            <div>
-                <a href="$url">$title</a>
-            </div>
-html;
+<li><a href="$url">$title</a></li>
+html. PHP_EOL;
     }
 }
 
@@ -81,6 +80,12 @@ class Menu extends Component
      * @var string
      */
     private $title;
+
+    //TODO title to constructor
+    public function __construct()
+    {
+        $this->children = new \SplObjectStorage;
+    }
 
     public function getTitle(): string
     {
@@ -113,13 +118,18 @@ class Menu extends Component
     public function render(): string
     {
         $title = $this->getTitle();
-        $html = '<div>';
-        print_r($this->children);
-//        foreach ($this->children as $child) {
-//            /** @var Component $child */
-//            $html .= '<div>'. $title . $child->render() . '</div>';
-//        }
-        $html .= '</div>';
+        $html = '<ul>' . PHP_EOL;
+        foreach ($this->children as $child) {
+
+            /** @var Component $child */
+            if ($child->isComposite()) {
+                $html .= '<li><a>' . $title . $child->render() . '</a></li>' . PHP_EOL;
+            } else {
+                $html .= $child->render();
+            }
+
+        }
+        $html .= '</ul>' . PHP_EOL;
         return $html;
     }
 }
@@ -137,33 +147,15 @@ class Menu extends Component
  *              -> Trousers
  *              -> Tops
  */
-$navbar = new Menu();
-$navbar->setTitle('Menu');
-$home = new MenuItem();
-$home->setTitle('Home');
-$home->setUrl('/home');
-$navbar->add($home);
 
-$shop = new Menu();
-$shop->setTitle('Shop');
-$navbar->add($shop);
-$woman = new Menu();
-$woman->setTitle('Woman');
-$shop->add($woman);
+$man = new Menu();
+$man->setTitle('Man');
 
 $shoes = new MenuItem();
 $shoes->setTitle('Shoes');
 $shoes->setUrl('/shoes');
-$woman->add($shoes);
+$man->add($shoes);
 
-$about = new MenuItem();
-$about->setTitle('About');
-$about->setUrl('/about');
-$navbar->add($about);
-
-$contact = new MenuItem();
-$contact->setTitle('Contact');
-$contact->setUrl('/contact');
-$navbar->add($contact);
-
-$navbar->render();
+print_r(
+    $man->render()
+);
