@@ -61,7 +61,7 @@ class MenuItem extends Component
         $url = $this->getUrl();
         $title = $this->getTitle();
         return <<<html
-<li><a href="$url">$title</a></li>
+    <li><a href="$url">$title</a></li>
 html. PHP_EOL;
     }
 }
@@ -111,18 +111,14 @@ class Menu extends Component
     public function render(): string
     {
         $title = $this->getTitle();
-        $html = '<ul>' . PHP_EOL;
+        $html = <<<html
+<li><a>$title</a>
+html. PHP_EOL;
+        $html .= '<ul>' . PHP_EOL;
         foreach ($this->children as $child) {
-
-            /** @var Component $child */
-            if ($child->isComposite()) {
-                $html .= '<li><a>' . $title . $child->render() . '</a></li>' . PHP_EOL;
-            } else {
-                $html .= $child->render();
-            }
-
+            $html .= $child->render();
         }
-        $html .= '</ul>' . PHP_EOL;
+        $html .= '</ul>' . "\n" . '</li>' . PHP_EOL;
         return $html;
     }
 }
@@ -141,11 +137,25 @@ class Menu extends Component
  *              -> Tops
  */
 
+$shoes = new MenuItem('Shoes', '/shoes');
+$trousers = new MenuItem('Trousers', '/trousers');
+$tops = new MenuItem('Tops', '/tops');
 $man = new Menu('Man');
-
-$shoes = new MenuItem('Shoes','/shoes');
 $man->add($shoes);
+$man->add($trousers);
+$man->add($tops);
+$shop = new Menu('Shop');
+$shop->add($man);
+
+$shoes = new MenuItem('Shoes', '/shoes');
+$trousers = new MenuItem('Trousers', '/trousers');
+$tops = new MenuItem('Tops', '/tops');
+$woman = new Menu('Woman');
+$woman->add($shoes);
+$woman->add($trousers);
+$woman->add($tops);
+$shop->add($woman);
 
 print_r(
-    $man->render()
+    $shop->render()
 );
