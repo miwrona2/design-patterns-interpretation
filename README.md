@@ -14,7 +14,7 @@
 |---|:-----:| ---:|
 Adapter |[php](php/Adapter.php) |js / ts 
 Bridge |[php](php/Bridge.php) |js / ts 
-Composite |php |js / ts 
+Composite |[php](php/Composite.php) |js / ts 
 Decorator |php |js / ts 
 Facade |php |js / ts 
 Flyweight |php |js / ts 
