@@ -39,24 +39,21 @@ class MenuItem extends Component
      */
     private $url;
 
+    public function __construct(string $title, string $url)
+    {
+        $this->title = $title;
+        $this->url = $url;
+
+    }
+
     public function getTitle(): string
     {
         return $this->title;
     }
 
-    public function setTitle(string $title): void
-    {
-        $this->title = $title;
-    }
-
     public function getUrl(): string
     {
         return $this->url;
-    }
-
-    public function setUrl(string $url): void
-    {
-        $this->url = $url;
     }
 
     public function render(): string
@@ -82,19 +79,15 @@ class Menu extends Component
     private $title;
 
     //TODO title to constructor
-    public function __construct()
+    public function __construct(string $title)
     {
         $this->children = new \SplObjectStorage;
+        $this->title = $title;
     }
 
     public function getTitle(): string
     {
         return $this->title;
-    }
-
-    public function setTitle(string $title): void
-    {
-        $this->title = $title;
     }
 
     public function add(Component $component)
@@ -148,12 +141,9 @@ class Menu extends Component
  *              -> Tops
  */
 
-$man = new Menu();
-$man->setTitle('Man');
+$man = new Menu('Man');
 
-$shoes = new MenuItem();
-$shoes->setTitle('Shoes');
-$shoes->setUrl('/shoes');
+$shoes = new MenuItem('Shoes','/shoes');
 $man->add($shoes);
 
 print_r(
