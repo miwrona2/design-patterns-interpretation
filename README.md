@@ -18,7 +18,7 @@ Composite |[php](php/Composite.php) |js / ts
 Decorator |[php](php/Decorator.php) |js / ts 
 Facade |php |js / ts 
 Flyweight |php |js / ts 
-Proxy |php |js / ts 
+Proxy |[php](php/Proxy.php) |js / ts 
 
 #### Behavioral
 |   |       |     |
