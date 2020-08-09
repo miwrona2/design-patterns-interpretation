@@ -8,7 +8,7 @@
 |Factory Method   |[php](php/FactoryMethod.php)                      |js / ts |
 |Prototype        |[php](php/Prototype.php)      |[js](js/Prototype.js) / ts |
 |Singleton        |[php](php/Singleton.php)                         |js / ts |
-|Constructor        |[php]                         |[js](js/Constructor.js) / ts |
+|Constructor      |php                           |[js](js/Constructor.js) / ts |
 
 #### Structural
 |   |       |     |
