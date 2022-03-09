@@ -7,38 +7,24 @@ namespace DesignPatterns\Behavioral\Iterator;
 use Countable;
 use Iterator;
 
-class BookList implements Iterator, Countable
+class BookIterator implements Iterator, Countable
 {
-    /**
-     * @var Book[]
-     */
-    private array $books = [];
     private int $currentIndex = 0;
+    private BookList $bookList;
 
-    public function addBook(Book $book)
+    public function __construct(BookList $bookList)
     {
-        $this->books[] = $book;
-    }
-
-    public function removeBook(Book $bookToRemove)
-    {
-        foreach ($this->books as $key => $book) {
-            if ($book->getAuthorAndTitle() === $bookToRemove->getAuthorAndTitle()) {
-                unset($this->books[$key]);
-            }
-        }
-
-        $this->books = array_values($this->books);
+        $this->bookList = $bookList;
     }
 
     public function count(): int
     {
-        return count($this->books);
+        return count($this->bookList->getBooks());
     }
 
     public function current(): Book
     {
-        return $this->books[$this->currentIndex];
+        return $this->bookList->getBooks()[$this->currentIndex];
     }
 
     public function key(): int
@@ -58,10 +44,38 @@ class BookList implements Iterator, Countable
 
     public function valid(): bool
     {
-        return isset($this->books[$this->currentIndex]);
+        return isset($this->bookList->getBooks()[$this->currentIndex]);
     }
 }
 
+class BookList
+{
+    private array $books = [];
+
+    /** 
+     * @return Book[]
+     */
+    public function getBooks(): array
+    {
+        return $this->books;
+    }
+
+    public function addBook(Book $book)
+    {
+        $this->books[] = $book;
+    }
+
+    public function removeBook(Book $bookToRemove)
+    {
+        foreach ($this->books as $key => $book) {
+            if ($book->getAuthorAndTitle() === $bookToRemove->getAuthorAndTitle()) {
+                unset($this->books[$key]);
+            }
+        }
+
+        $this->books = array_values($this->books);
+    }
+}
 class Book
 {
     private $title;

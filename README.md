@@ -27,7 +27,7 @@ Proxy |[php](php/Proxy.php) |js / ts
 Chain of responsibility |php |js / ts 
 Command |php |js / ts 
 Interpreter |php |js / ts 
-Iterator |php |js / ts 
+Iterator |[php](php/Iterator.php) |js / ts 
 Mediator  |php |js / ts 
 Memento |php |js / ts 
 Observer |[php](php/Observer.php) |js / ts 
